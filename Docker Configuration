@@ -1,0 +1,9 @@
+sudo docker pull ghcr.io/home-assistant/home-assistant:stable
+
+sudo docker stop homeassistant
+
+sudo docker rm homeassistant
+
+sudo docker run -d --name homeassistant --restart=unless-stopped --privileged -e TZ=MY_TIME_ZONE -v /run/dbus:/run/dbus:ro -v /Desktop/HomeAssistantContainer:/config --network=host ghcr.io/home-assistant/home-assistant:stable
+
+sudo docker system prune -a
